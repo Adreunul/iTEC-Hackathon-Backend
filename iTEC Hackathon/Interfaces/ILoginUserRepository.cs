@@ -1,9 +1,9 @@
-﻿using iTEC_Hackathon.DTOs;
+﻿using iTEC_Hackathon.DTOs.User;
 
 namespace iTEC_Hackathon.Interfaces
 {
     public interface ILoginUserRepository
     {
-        Task<int> LoginUserAsyncRepo(UserCredentialsLoginDTO userCredentialsDTO);
+        Task<int> LoginUserAsyncRepo(UserCredentialsDTO userCredentialsDTO);
     }
 }

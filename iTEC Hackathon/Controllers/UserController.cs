@@ -1,4 +1,4 @@
-﻿using iTEC_Hackathon.DTOs;
+﻿using iTEC_Hackathon.DTOs.User;
 using iTEC_Hackathon.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Eventing.Reader;
@@ -19,7 +19,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpPost]
         [Route("LoginUser")]
-        public async Task<IActionResult> LoginUserAsync([FromBody] UserCredentialsLoginDTO userCredentialsDTO)
+        public async Task<IActionResult> LoginUserAsync([FromBody] UserCredentialsDTO userCredentialsDTO)
         {
             var userID = await _loginUserRepository.LoginUserAsyncRepo(userCredentialsDTO);
 
@@ -31,9 +31,9 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpPost]
         [Route("RegisterUser")]
-        public async Task<IActionResult> RegisterUserAsync([FromBody] UserCredentialsRegisterDTO userCredentialsRegisterDTO)
+        public async Task<IActionResult> RegisterUserAsync([FromBody] UserCredentialsDTO userCredentialsDTO)
         {
-            var userID = await _registerUserRepository.RegisterUserAsyncRepo(userCredentialsRegisterDTO);
+            var userID = await _registerUserRepository.RegisterUserAsyncRepo(userCredentialsDTO);
 
             if (userID > 0)
                 return Ok(userID);

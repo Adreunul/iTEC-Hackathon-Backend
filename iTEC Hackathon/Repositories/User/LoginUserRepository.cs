@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Dapper;
-using iTEC_Hackathon.DTOs;
+using iTEC_Hackathon.DTOs.User;
 using iTEC_Hackathon.Interfaces;
 
 namespace iTEC_Hackathon.Repositories
@@ -13,7 +13,7 @@ namespace iTEC_Hackathon.Repositories
             _connectionFactory = connectionFactory;
         }
 
-        public async Task<int> LoginUserAsyncRepo(UserCredentialsLoginDTO userCredentialsDTO)
+        public async Task<int> LoginUserAsyncRepo(UserCredentialsDTO userCredentialsDTO)
         {
             var parameters = new DynamicParameters();
 

@@ -1,6 +1,6 @@
-﻿namespace iTEC_Hackathon.DTOs
+﻿namespace iTEC_Hackathon.DTOs.User
 {
-    public class UserCredentialsLoginDTO
+    public class UserCredentialsDTO
     {
         public string Email { get; set; }
         public string Password { get; set; }
