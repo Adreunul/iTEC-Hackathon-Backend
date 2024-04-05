@@ -2,6 +2,7 @@
 using Dapper;
 using iTEC_Hackathon.DTOs.User;
 using iTEC_Hackathon.Interfaces;
+using iTEC_Hackathon.Interfaces.User;
 
 namespace iTEC_Hackathon.Repositories
 {

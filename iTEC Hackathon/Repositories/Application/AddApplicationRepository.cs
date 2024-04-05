@@ -2,6 +2,7 @@
 using System.Data;
 using iTEC_Hackathon.Interfaces;
 using iTEC_Hackathon.DTOs.Application;
+using iTEC_Hackathon.Interfaces.Application;
 
 namespace iTEC_Hackathon.Repositories
 {

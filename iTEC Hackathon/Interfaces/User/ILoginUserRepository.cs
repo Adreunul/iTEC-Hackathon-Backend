@@ -1,6 +1,6 @@
 ﻿using iTEC_Hackathon.DTOs.User;
 
-namespace iTEC_Hackathon.Interfaces
+namespace iTEC_Hackathon.Interfaces.User
 {
     public interface ILoginUserRepository
     {

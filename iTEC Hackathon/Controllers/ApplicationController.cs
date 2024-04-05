@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using iTEC_Hackathon.Interfaces;
 using iTEC_Hackathon.DTOs.Application;
+using iTEC_Hackathon.Interfaces.Application;
+using iTEC_Hackathon.Interfaces.User;
 
 namespace iTEC_Hackathon.Controllers
 {
@@ -24,7 +25,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpPost]
         [Route("AddApplication")]
-        public async Task<IActionResult> AddApplicationAsync([FromBody] ApplicationInsertDTO applicationInsertDTO)
+        public async Task<IActionResult> AddApplicationAsyncRepo([FromBody] ApplicationInsertDTO applicationInsertDTO)
         {
             var applicationID = await _addApplicationRepository.AddApplicationAsyncRepo(applicationInsertDTO);
 
@@ -36,7 +37,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpDelete]
         [Route("DeleteApplication")]
-        public async Task<IActionResult> DeleteApplicationAsync([FromBody] int idApplication)
+        public async Task<IActionResult> DeleteApplicationAsyncRepo([FromBody] int idApplication)
         {
             var success = await _deleteApplicationRepository.DeleteApplicationAsyncRepo(idApplication);
 
@@ -48,7 +49,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpGet]
         [Route("GetApplication(s)")]
-        public async Task<IActionResult> GetApplicationAsync(int idUserAuthor)
+        public async Task<IActionResult> GetApplicationAsyncRepo(int idUserAuthor)
         {
             var result = await _getApplicationRepository.GetApplicationAsyncRepo(idUserAuthor);
 
@@ -60,7 +61,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpPatch]
         [Route("UpdateApplication")]
-        public async Task<IActionResult> UpdateApplicationAsync([FromBody] ApplicationUpdateDTO applicationUpdateDTO)
+        public async Task<IActionResult> UpdateApplicationAsyncRepo([FromBody] ApplicationUpdateDTO applicationUpdateDTO)
         {
             var success = await _updateApplicationRepository.UpdateApplicationAsyncRepo(applicationUpdateDTO);
             if(success == 1)

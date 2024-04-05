@@ -1,4 +1,4 @@
-﻿namespace iTEC_Hackathon.Interfaces
+﻿namespace iTEC_Hackathon.Interfaces.Application
 {
     public interface IDeleteApplicationRepository
     {

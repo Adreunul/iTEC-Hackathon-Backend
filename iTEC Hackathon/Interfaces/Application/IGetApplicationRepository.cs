@@ -1,6 +1,6 @@
 ﻿using iTEC_Hackathon.DTOs.Application;
 
-namespace iTEC_Hackathon.Interfaces
+namespace iTEC_Hackathon.Interfaces.Application
 {
     public interface IGetApplicationRepository
     {
