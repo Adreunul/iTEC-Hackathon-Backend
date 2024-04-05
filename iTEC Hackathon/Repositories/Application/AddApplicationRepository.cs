@@ -23,6 +23,7 @@ namespace iTEC_Hackathon.Repositories
             parameters.Add("@Name", applicationInsertDTO.Name);
             parameters.Add("@Description", applicationInsertDTO.Description);
             parameters.Add("@IdUserAuthor", applicationInsertDTO.IdUserAuthor);
+            parameters.Add("@Image", applicationInsertDTO.Image);
             parameters.Add("IdApplicationState", 1);
             parameters.Add("@DateCreated", sqlFormattedDate);
             parameters.Add("@IdApplication", dbType: DbType.Int32, direction: ParameterDirection.Output);
