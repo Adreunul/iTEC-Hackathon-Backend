@@ -13,7 +13,7 @@ namespace iTEC_Hackathon.Repositories
             _connectionFactory = connectionFactory;
         }
 
-        public async Task<int> LoginUserAsyncRepo(UserCredentialsDTO userCredentialsDTO)
+        public async Task<int> LoginUserAsyncRepo(UserCredentialsLoginDTO userCredentialsDTO)
         {
             var parameters = new DynamicParameters();
 

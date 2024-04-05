@@ -14,6 +14,7 @@ namespace iTEC_Hackathon
             //--------------------------------------------------------------------
             //USER
             services.AddScoped<ILoginUserRepository, LoginUserRepository>();
+            services.AddScoped<IRegisterUserRepository, RegisterUserRepository>();
             
             //--------------------------------------------------------------------
             
