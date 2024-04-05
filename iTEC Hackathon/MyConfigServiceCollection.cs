@@ -15,9 +15,12 @@ namespace iTEC_Hackathon
             //USER
             services.AddScoped<ILoginUserRepository, LoginUserRepository>();
             services.AddScoped<IRegisterUserRepository, RegisterUserRepository>();
-            
+
             //--------------------------------------------------------------------
-            
+            //APPLICATION
+            services.AddScoped<IAddApplicationRepository, AddApplicationRepository>();
+            services.AddScoped<IDeleteApplicationRepository, DeleteApplicationRepository>();
+            services.AddScoped<IGetApplicationRepository, GetApplicationRepository>();
 
             return services;
         }
