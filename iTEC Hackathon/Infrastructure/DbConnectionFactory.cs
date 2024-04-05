@@ -14,7 +14,7 @@ namespace iTEC_Hackathon.Infrastructure
         }
         public IDbConnection ConnectToDataBase()
         {
-            var conectionString = _configuration.GetConnectionString("DefaultConnection");
+            var conectionString = _configuration.GetConnectionString("ConnectionString");
             IDbConnection connection = new SqlConnection(conectionString);
             connection.Open();
             return connection;
