@@ -1,7 +1,6 @@
-﻿using .iTEC_Hackathon.DTOs;
-using ITFestHackathon_API.DTOs;
+﻿using iTEC_Hackathon.DTOs;
 
-namespace ITFestHackathon_API.Interfaces
+namespace iTEC_Hackathon.Interfaces
 {
     public interface ILoginUserRepository
     {

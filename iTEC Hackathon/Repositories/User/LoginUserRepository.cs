@@ -1,7 +1,8 @@
 ﻿using System.Data;
 using Dapper;
-using ITFestHackathon_API.Interfaces;
-namespace ITFestHackathon_API.Repositories.User
+using iTEC_Hackathon.DTOs;
+using iTEC_Hackathon.Interfaces;
+namespace iTEC_Hackathon.Repositories
 {
     public class LoginUserRepository : ILoginUserRepository
     {
@@ -25,5 +26,6 @@ namespace ITFestHackathon_API.Repositories.User
                 return parameters.Get<int>("UserID");
             }
         }
+
     }
 }

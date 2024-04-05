@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace ITFestHackathon_API.Interfaces
+namespace iTEC_Hackathon.Interfaces
 {
     public interface IDbConnectionFactory
     {

@@ -1,9 +1,9 @@
-﻿using ITFestHackathon_API.Interfaces;
+﻿using iTEC_Hackathon.Interfaces;
 using Microsoft.AspNetCore.Connections;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ITFestHackathon_API.Infrastructure
+namespace iTEC_Hackathon.Infrastructure
 {
     public class DbConnectionFactory : IDbConnectionFactory
     {
