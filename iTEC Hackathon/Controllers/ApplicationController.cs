@@ -9,14 +9,17 @@ namespace iTEC_Hackathon.Controllers
         private readonly IAddApplicationRepository _addApplicationRepository;
         private readonly IDeleteApplicationRepository _deleteApplicationRepository;
         private readonly IGetApplicationRepository _getApplicationRepository;
+        private readonly IUpdateApplicationRepository _updateApplicationRepository;
 
         public ApplicationController(IAddApplicationRepository addApplicationRepository,
             IDeleteApplicationRepository deleteApplicationRepository, 
-            IGetApplicationRepository getApplicationRepository)
+            IGetApplicationRepository getApplicationRepository,
+            IUpdateApplicationRepository updateApplicationRepository)
         {
             _addApplicationRepository = addApplicationRepository;
             _deleteApplicationRepository = deleteApplicationRepository;
             _getApplicationRepository = getApplicationRepository;
+            _updateApplicationRepository = updateApplicationRepository;
         }
 
         [HttpPost]
@@ -53,6 +56,17 @@ namespace iTEC_Hackathon.Controllers
                 return Ok(result);
             else
                 return BadRequest("Application failed.");
+        }
+
+        [HttpPatch]
+        [Route("UpdateApplication")]
+        public async Task<IActionResult> UpdateApplicationAsync([FromBody] ApplicationUpdateDTO applicationUpdateDTO)
+        {
+            var success = await _updateApplicationRepository.UpdateApplicationAsyncRepo(applicationUpdateDTO);
+            if(success == 1)
+                return Ok();
+            else
+                return BadRequest("Application update failed.");
         }
     }
 }

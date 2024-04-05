@@ -21,6 +21,7 @@ namespace iTEC_Hackathon
             services.AddScoped<IAddApplicationRepository, AddApplicationRepository>();
             services.AddScoped<IDeleteApplicationRepository, DeleteApplicationRepository>();
             services.AddScoped<IGetApplicationRepository, GetApplicationRepository>();
+            services.AddScoped<IUpdateApplicationRepository, UpdateApplicationRepository>();
 
             return services;
         }
