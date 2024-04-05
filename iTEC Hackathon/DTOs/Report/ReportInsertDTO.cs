@@ -2,10 +2,9 @@
 {
     public class ReportInsertDTO
     {
-        int IdApplication { get; set; }
-        int IdEndpoint { get; set; }
-        int IdUser { get; set; }
-        DateTime DateCreated { get; set; }
-        string Mentions { get; set; }
+        public int IdApplication { get; set; }
+        public int IdEndpoint { get; set; }
+        public int IdUser { get; set; }
+        public string Mentions { get; set; }
     }
 }

@@ -2,9 +2,12 @@
 using iTEC_Hackathon.Interfaces;
 using iTEC_Hackathon.Interfaces.Application;
 using iTEC_Hackathon.Interfaces.Endpoint;
+using iTEC_Hackathon.Interfaces.Report;
 using iTEC_Hackathon.Interfaces.User;
 using iTEC_Hackathon.Repositories;
 using iTEC_Hackathon.Repositories.Endpoint;
+using iTEC_Hackathon.Repositories.Report;
+
 
 
 namespace iTEC_Hackathon
@@ -30,6 +33,11 @@ namespace iTEC_Hackathon
             services.AddScoped<IGetEndpointRepository, GetEndpointRepository>();
             services.AddScoped<IAddEndpointRepository, AddEndpointRepository>();
             services.AddScoped<IDeleteEndpointRepository, DeleteEndpointRepository>();
+            //--------------------------------------------------------------------
+            //REPORT
+            services.AddScoped<IAddReportRepository, AddReportRepository>();
+            services.AddScoped<IGetReportRepository, GetReportRepository>();
+            services.AddScoped<IDeleteReportRepository, DeleteReportRepository>();
 
             return services;
         }
