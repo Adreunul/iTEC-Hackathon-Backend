@@ -5,6 +5,6 @@ namespace iTEC_Hackathon.Interfaces.Endpoint
 {
     public interface IGetEndpointRepository
     {
-        Task<IEnumerable<EndpointHistoryGetEndpointsStateDTO>> GetEndpointAsyncRepo(int idApplication);
+        Task<IEnumerable<EndpointGetDTO>> GetEndpointAsyncRepo(int idApplication);
     }
 }
