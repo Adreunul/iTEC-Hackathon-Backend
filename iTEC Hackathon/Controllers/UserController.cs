@@ -9,12 +9,15 @@ namespace iTEC_Hackathon.Controllers
     {
         private readonly ILoginUserRepository _loginUserRepository;
         private readonly IRegisterUserRepository _registerUserRepository;
+        private readonly IGetUserApplicationsInfoRepository _getUserApplicationsInfoRepository;
 
         public UserController(ILoginUserRepository loginUserRepository, 
-            IRegisterUserRepository registerUserRepository)
+            IRegisterUserRepository registerUserRepository, 
+            IGetUserApplicationsInfoRepository getUserApplicationsInfoRepository)
         {
             _loginUserRepository = loginUserRepository;
             _registerUserRepository = registerUserRepository;
+            _getUserApplicationsInfoRepository = getUserApplicationsInfoRepository;
         }
 
         [HttpPost]
@@ -41,5 +44,16 @@ namespace iTEC_Hackathon.Controllers
                 return BadRequest("Registration failed.");
         }
 
+        [HttpGet]
+        [Route("GetUserApplicationsInfo")]
+        public async Task<IActionResult> GetUserApplicationsInfoAsync( int idUser)
+        {
+            var userApplicationsInfo = await _getUserApplicationsInfoRepository.GetUserApplicationsInfoAsyncRepo(idUser);
+
+            if (userApplicationsInfo != null)
+                return Ok(userApplicationsInfo);
+            else
+                return BadRequest("No applications found.");
+        }
     }
 }

@@ -9,6 +9,7 @@ using iTEC_Hackathon.Repositories;
 using iTEC_Hackathon.Repositories.Endpoint;
 using iTEC_Hackathon.Repositories.EndpointHistory;
 using iTEC_Hackathon.Repositories.Report;
+using iTEC_Hackathon.Repositories.User;
 
 
 
@@ -24,6 +25,7 @@ namespace iTEC_Hackathon
             //USER
             services.AddScoped<ILoginUserRepository, LoginUserRepository>();
             services.AddScoped<IRegisterUserRepository, RegisterUserRepository>();
+            services.AddScoped<IGetUserApplicationsInfoRepository, GetUserApplicationsInfoRepository>();
             //--------------------------------------------------------------------
             //APPLICATION
             services.AddScoped<IAddApplicationRepository, AddApplicationRepository>();
