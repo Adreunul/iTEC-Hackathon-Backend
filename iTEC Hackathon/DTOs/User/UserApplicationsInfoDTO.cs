@@ -2,6 +2,7 @@
 {
     public class UserApplicationsInfoDTO
     {
+        public string Email { get; set;}
         public int NrOfApplications { get; set; }
         public int NrOfEndpoints { get; set; }
         public int NrOfEndpointsStable { get; set; }
