@@ -4,5 +4,6 @@
     {
         public string URL { get; set; }
         public int IdType { get; set; }
+        public int IdApplication { get; set; }
     }
 }

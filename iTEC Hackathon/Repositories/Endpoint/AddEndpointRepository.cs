@@ -14,16 +14,17 @@ namespace iTEC_Hackathon.Repositories.Endpoint
             _dbconnectionFactory = dbconnectionFactory;
         }
 
-        public async Task<int> AddEndpointAsyncRepo(EndpointInsertDTO endpoint)
+        public async Task<int> AddEndpointAsyncRepo(EndpointInsertDTO endpointInsertDTO)
         {
             var parameters = new DynamicParameters();
 
             DateTime myDateTime = DateTime.Now;
             string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
-            parameters.Add("@URL", endpoint.URL);
-            parameters.Add("@IdType", endpoint.IdType);
+            parameters.Add("@URL", endpointInsertDTO.URL);
+            parameters.Add("@IdType", endpointInsertDTO.IdType);
             parameters.Add("@DateCreated", sqlFormattedDate);
+            parameters.Add("@IdApplication", endpointInsertDTO.IdApplication);
             parameters.Add("@IdEndpoint", dbType: DbType.Int32, direction: ParameterDirection.Output);
 
             using (var connection = _dbconnectionFactory.ConnectToDataBase())
