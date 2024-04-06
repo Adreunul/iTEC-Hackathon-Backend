@@ -8,18 +8,21 @@ namespace iTEC_Hackathon.Controllers
     {
         private readonly IAddReportRepository _addReportRepository;
         private readonly IGetReportRepository _getReportRepository;
+        private readonly IGetReportsUnsolvedByIdUserRepository _getReportByIdUserRepository;
         private readonly IDeleteReportRepository _deleteReportRepository;
         private readonly IUpdateReportRepository _updateReportRepository;
 
         public ReportController(IAddReportRepository addReportRepository,
             IGetReportRepository getReportRepository,
             IDeleteReportRepository deleteReportRepository,
-            IUpdateReportRepository updateReportRepository)
+            IUpdateReportRepository updateReportRepository,
+            IGetReportsUnsolvedByIdUserRepository getReportByIdUserRepository)
         {
             _addReportRepository = addReportRepository;
             _getReportRepository = getReportRepository;
             _deleteReportRepository = deleteReportRepository;
             _updateReportRepository = updateReportRepository;
+            _getReportByIdUserRepository = getReportByIdUserRepository;
         }
 
         [HttpPost]
@@ -39,6 +42,18 @@ namespace iTEC_Hackathon.Controllers
         public async Task<IActionResult> GetReportAsyncRepo(int idApplication)
         {
             var result = await _getReportRepository.GetReportAsyncRepo(idApplication);
+
+            if(result != null)
+                return Ok(result);
+            else
+                return BadRequest("Report failed.");
+        }
+
+        [HttpGet]
+        [Route("GetReportByIdUser")]
+        public async Task<IActionResult> GetReportByIdUserAsyncRepo(int idUser)
+        {
+            var result = await _getReportByIdUserRepository.GetReportsUnsolvedByIdUserAsyncRepo(idUser);
 
             if(result != null)
                 return Ok(result);
