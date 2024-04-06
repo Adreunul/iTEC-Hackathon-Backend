@@ -15,6 +15,7 @@ using iTEC_Hackathon.Repositories.User;
 
 
 
+
 namespace iTEC_Hackathon
 {
     public static class MyConfigServiceCollection
@@ -57,6 +58,7 @@ namespace iTEC_Hackathon
             //STATISTICS
             services.AddScoped<IGetTotalNumbersOfRecordsRepository, GetTotalNumbersOfRecordsRepository>();
             services.AddScoped<IGetTotalNumberOfEndpointsByStateRepository, GetTotalNumberOfEndpointsByStateRepository>();
+            services.AddScoped<IGetTotalNumberOfReportsBySolvedRepository, GetTotalNumberOfReportsBySolvedRepository>();
 
 
             return services;
