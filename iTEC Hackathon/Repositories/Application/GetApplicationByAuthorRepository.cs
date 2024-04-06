@@ -7,21 +7,21 @@ using iTEC_Hackathon.Interfaces.Application;
 
 namespace iTEC_Hackathon.Repositories
 {
-    public class GetApplicationRepository : IGetApplicationRepository
+    public class GetApplicationByAuthorRepository : IGetApplicationByAuthorRepository
     {
       private readonly IDbConnectionFactory _dbconnectionFactory;
-        public GetApplicationRepository(IDbConnectionFactory dbconnectionFactory)
+        public GetApplicationByAuthorRepository(IDbConnectionFactory dbconnectionFactory)
         {
             _dbconnectionFactory = dbconnectionFactory;
         }
 
-        public async Task<IEnumerable<ApplicationGetDTO>> GetApplicationAsyncRepo(int idUserAuthor)
+        public async Task<IEnumerable<ApplicationGetByAuthorDTO>> GetApplicationAsyncRepo(int idUserAuthor)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@IdUserAuthor", idUserAuthor);
             using (var connection = _dbconnectionFactory.ConnectToDataBase())
             {
-                var result = await connection.QueryAsync<ApplicationGetDTO>("GetApplications", parameters, commandType: CommandType.StoredProcedure);
+                var result = await connection.QueryAsync<ApplicationGetByAuthorDTO>("GetApplicationsByAuthor", parameters, commandType: CommandType.StoredProcedure);
                 return result;
             }
         }

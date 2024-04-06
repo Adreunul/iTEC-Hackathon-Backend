@@ -1,6 +1,6 @@
 ﻿namespace iTEC_Hackathon.DTOs.Application
 {
-    public class ApplicationGetDTO
+    public class ApplicationGetByAuthorDTO
     {
         public int IdApplication { get; set; }
         public string Name { get; set; }

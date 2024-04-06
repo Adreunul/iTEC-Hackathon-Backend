@@ -9,18 +9,21 @@ namespace iTEC_Hackathon.Controllers
     {
         private readonly IAddApplicationRepository _addApplicationRepository;
         private readonly IDeleteApplicationRepository _deleteApplicationRepository;
-        private readonly IGetApplicationRepository _getApplicationRepository;
+        private readonly IGetApplicationByAuthorRepository _getApplicationByAuthorRepository;
+        private readonly IGetApplicationByIdRepository _getApplicationByIdRepository;
         private readonly IUpdateApplicationRepository _updateApplicationRepository;
 
         public ApplicationController(IAddApplicationRepository addApplicationRepository,
             IDeleteApplicationRepository deleteApplicationRepository, 
-            IGetApplicationRepository getApplicationRepository,
-            IUpdateApplicationRepository updateApplicationRepository)
+            IGetApplicationByAuthorRepository getApplicationRepository,
+            IUpdateApplicationRepository updateApplicationRepository,
+            IGetApplicationByIdRepository getApplicationByIdRepository)
         {
             _addApplicationRepository = addApplicationRepository;
             _deleteApplicationRepository = deleteApplicationRepository;
-            _getApplicationRepository = getApplicationRepository;
+            _getApplicationByAuthorRepository = getApplicationRepository;
             _updateApplicationRepository = updateApplicationRepository;
+            _getApplicationByIdRepository = getApplicationByIdRepository;
         }
 
         [HttpPost]
@@ -48,10 +51,22 @@ namespace iTEC_Hackathon.Controllers
         }
 
         [HttpGet]
-        [Route("GetApplication(s)")]
+        [Route("GetApplication(s)ByAuthor")]
         public async Task<IActionResult> GetApplicationAsyncRepo(int idUserAuthor)
         {
-            var result = await _getApplicationRepository.GetApplicationAsyncRepo(idUserAuthor);
+            var result = await _getApplicationByAuthorRepository.GetApplicationAsyncRepo(idUserAuthor);
+
+            if (result != null)
+                return Ok(result);
+            else
+                return BadRequest("Application failed.");
+        }
+
+        [HttpGet]
+        [Route("GetApplicationById")]
+        public async Task<IActionResult> GetApplicationByIdAsyncRepo(int idApplication)
+        {
+            var result = await _getApplicationByIdRepository.GetApplicationByIdAsyncRepo(idApplication);
 
             if (result != null)
                 return Ok(result);
