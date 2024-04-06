@@ -6,6 +6,7 @@
         public int IdApplicationReport { get; set; }
         public int IdEndpoint { get; set; }
         public int IdUser { get; set; }
+        public int MarkedAsSolved { get; set; }
         public DateTime DateCreated { get; set; }
         public string Mentions { get; set; }
         //de la app

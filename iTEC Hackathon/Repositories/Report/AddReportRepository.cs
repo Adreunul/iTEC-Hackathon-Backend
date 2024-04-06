@@ -26,6 +26,7 @@ namespace iTEC_Hackathon.Repositories.Report
             parameters.Add("@IdUser", reportInsertDTO.IdUser);
             parameters.Add("@DateCreated", sqlFormattedDate);
             parameters.Add("@Mentions", reportInsertDTO.Mentions);
+            parameters.Add("@MarkedAsSolved", 0);
             parameters.Add("@IdApplicationReport", dbType: DbType.Int32, direction: ParameterDirection.Output);
 
             using (var connection = _dbconnectionFactory.ConnectToDataBase())

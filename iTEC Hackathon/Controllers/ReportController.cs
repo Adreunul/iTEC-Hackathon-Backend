@@ -9,14 +9,17 @@ namespace iTEC_Hackathon.Controllers
         private readonly IAddReportRepository _addReportRepository;
         private readonly IGetReportRepository _getReportRepository;
         private readonly IDeleteReportRepository _deleteReportRepository;
+        private readonly IUpdateReportRepository _updateReportRepository;
 
         public ReportController(IAddReportRepository addReportRepository,
             IGetReportRepository getReportRepository,
-            IDeleteReportRepository deleteReportRepository)
+            IDeleteReportRepository deleteReportRepository,
+            IUpdateReportRepository updateReportRepository)
         {
             _addReportRepository = addReportRepository;
             _getReportRepository = getReportRepository;
             _deleteReportRepository = deleteReportRepository;
+            _updateReportRepository = updateReportRepository;
         }
 
         [HttpPost]
@@ -48,6 +51,18 @@ namespace iTEC_Hackathon.Controllers
         public async Task<IActionResult> DeleteReportAsyncRepo([FromBody] int idReport)
         {
             var success = await _deleteReportRepository.DeleteReportAsyncRepo(idReport);
+
+            if (success == 1)
+                return Ok(success);
+            else
+                return BadRequest("Report failed.");
+        }
+
+        [HttpPatch]
+        [Route("UpdateReport")]
+        public async Task<IActionResult> UpdateReportAsyncRepo([FromBody] ReportUpdateDTO reportUpdateDTO)
+        {
+            var success = await _updateReportRepository.UpdateReportAsyncRepo(reportUpdateDTO);
 
             if (success == 1)
                 return Ok(success);

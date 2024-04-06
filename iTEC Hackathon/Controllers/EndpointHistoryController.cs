@@ -45,7 +45,7 @@ namespace iTEC_Hackathon.Controllers
                 return BadRequest("Endpoint History failed.");
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("GetEndpointStateByHistory")]
         public async Task<IActionResult> GetEndpointStateByHistoryAsyncRepo([FromQuery] int idApplication)
         {
@@ -55,6 +55,6 @@ namespace iTEC_Hackathon.Controllers
                 return Ok(result);
             else
                 return BadRequest("Endpoint History failed.");
-        }
+        }*/
     }
 }

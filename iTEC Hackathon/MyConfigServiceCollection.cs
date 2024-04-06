@@ -48,6 +48,7 @@ namespace iTEC_Hackathon
             services.AddScoped<IAddReportRepository, AddReportRepository>();
             services.AddScoped<IGetReportRepository, GetReportRepository>();
             services.AddScoped<IDeleteReportRepository, DeleteReportRepository>();
+            services.AddScoped<IUpdateReportRepository, UpdateReportRepository>();
 
             return services;
         }
