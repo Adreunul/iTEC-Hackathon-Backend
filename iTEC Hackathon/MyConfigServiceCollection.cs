@@ -9,7 +9,9 @@ using iTEC_Hackathon.Repositories;
 using iTEC_Hackathon.Repositories.Endpoint;
 using iTEC_Hackathon.Repositories.EndpointHistory;
 using iTEC_Hackathon.Repositories.Report;
+using iTEC_Hackathon.Repositories.Statistics;
 using iTEC_Hackathon.Repositories.User;
+
 
 
 
@@ -50,6 +52,10 @@ namespace iTEC_Hackathon
             services.AddScoped<IGetReportsUnsolvedByIdUserRepository, GetReportsUnsolvedByIdUserRepository>();
             services.AddScoped<IDeleteReportRepository, DeleteReportRepository>();
             services.AddScoped<IUpdateReportRepository, UpdateReportRepository>();
+            //--------------------------------------------------------------------
+            //STATISTICS
+            services.AddScoped<IGetTotalNumbersOfRecordsRepository, GetTotalNumbersOfRecordsRepository>();
+            services.AddScoped<IGetTotalNumberOfEndpointsByStateRepository, GetTotalNumberOfEndpointsByStateRepository>();
 
 
             return services;
