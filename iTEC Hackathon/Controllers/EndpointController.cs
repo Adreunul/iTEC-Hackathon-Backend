@@ -45,7 +45,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpDelete]
         [Route("DeleteEndpoint")]
-        public async Task<IActionResult> DeleteEndpointAsyncRepo([FromBody] int idEndpoint)
+        public async Task<IActionResult> DeleteEndpointAsyncRepo(int idEndpoint)
         {
             var success = await _deleteEndpointRepository.DeleteEndpointAsyncRepo(idEndpoint);
 

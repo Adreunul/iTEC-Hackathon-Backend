@@ -10,12 +10,15 @@ namespace iTEC_Hackathon.Controllers
     {
         private readonly IAddEndpointHistoryRepository _addEndpointHistoryRepository;
         private readonly IGetEndpointHistoryByHoursRepository _getEndpointHistoryByHoursRepository;
+        private readonly IGetEndpointStateByHistoryRepository _getEndpointStateByHistoryRepository;
 
         public EndpointHistoryController(IAddEndpointHistoryRepository addEndpointHistoryRepository,
-            IGetEndpointHistoryByHoursRepository getEndpointHistoryByHoursRepository)
+            IGetEndpointHistoryByHoursRepository getEndpointHistoryByHoursRepository, 
+            IGetEndpointStateByHistoryRepository getEndpointStateByHistoryRepository)
         {
             _addEndpointHistoryRepository = addEndpointHistoryRepository;
             _getEndpointHistoryByHoursRepository = getEndpointHistoryByHoursRepository;
+            _getEndpointStateByHistoryRepository = getEndpointStateByHistoryRepository;
         }
 
         [HttpPost]
@@ -34,7 +37,19 @@ namespace iTEC_Hackathon.Controllers
         [Route("GetEndpointHistoryByHours")]
         public async Task<IActionResult> GetEndpointHistoryByHoursAsyncRepo([FromQuery] int idEndpoint, [FromQuery] int hours)
         {
-            var result = await _getEndpointHistoryByHoursRepository.GetEndpointHistoryByHoursAsync(idEndpoint, hours);
+            var result = await _getEndpointHistoryByHoursRepository.GetEndpointHistoryByHoursAsyncRepo(idEndpoint, hours);
+
+            if (result != null)
+                return Ok(result);
+            else
+                return BadRequest("Endpoint History failed.");
+        }
+
+        [HttpGet]
+        [Route("GetEndpointStateByHistory")]
+        public async Task<IActionResult> GetEndpointStateByHistoryAsyncRepo([FromQuery] int idApplication)
+        {
+            var result = await _getEndpointStateByHistoryRepository.GetEndpointStateByHistoryAsyncRepo(idApplication);
 
             if (result != null)
                 return Ok(result);

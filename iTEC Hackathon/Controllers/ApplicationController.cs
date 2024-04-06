@@ -40,7 +40,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpDelete]
         [Route("DeleteApplication")]
-        public async Task<IActionResult> DeleteApplicationAsyncRepo([FromBody] int idApplication)
+        public async Task<IActionResult> DeleteApplicationAsyncRepo(int idApplication)
         {
             var success = await _deleteApplicationRepository.DeleteApplicationAsyncRepo(idApplication);
 
