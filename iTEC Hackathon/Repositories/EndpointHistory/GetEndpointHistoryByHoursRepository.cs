@@ -14,7 +14,7 @@ namespace iTEC_Hackathon.Repositories
         {
             _dbconnectionFactory = dbconnectionFactory;
         }
-        
+
         public async Task<IEnumerable<EndpointHistoryGetByHoursDTO>> GetEndpointHistoryByHoursAsyncRepo([FromQuery] int idEndpoint, [FromQuery] int hours)
         {
             var parameters = new DynamicParameters();

@@ -2,6 +2,7 @@
 using iTEC_Hackathon.DTOs.Endpoint;
 using iTEC_Hackathon.Interfaces.EndpointHistory;
 using iTEC_Hackathon.DTOs.EndpointHistory;
+using iTEC_Hackathon.Interfaces;
 
 namespace iTEC_Hackathon.Controllers
 {
@@ -11,14 +12,17 @@ namespace iTEC_Hackathon.Controllers
         private readonly IAddEndpointHistoryRepository _addEndpointHistoryRepository;
         private readonly IGetEndpointHistoryByHoursRepository _getEndpointHistoryByHoursRepository;
         private readonly IGetEndpointStateByHistoryRepository _getEndpointStateByHistoryRepository;
+        private readonly IGetHistoryByIdEndpointRepository _getHistoryByIdEndpointRepository;
 
         public EndpointHistoryController(IAddEndpointHistoryRepository addEndpointHistoryRepository,
-            IGetEndpointHistoryByHoursRepository getEndpointHistoryByHoursRepository, 
-            IGetEndpointStateByHistoryRepository getEndpointStateByHistoryRepository)
+            IGetEndpointHistoryByHoursRepository getEndpointHistoryByHoursRepository,
+            IGetEndpointStateByHistoryRepository getEndpointStateByHistoryRepository,
+            IGetHistoryByIdEndpointRepository getHistoryByIdEndpointRepository)
         {
             _addEndpointHistoryRepository = addEndpointHistoryRepository;
             _getEndpointHistoryByHoursRepository = getEndpointHistoryByHoursRepository;
             _getEndpointStateByHistoryRepository = getEndpointStateByHistoryRepository;
+            _getHistoryByIdEndpointRepository = getHistoryByIdEndpointRepository;
         }
 
         [HttpPost]
@@ -38,6 +42,18 @@ namespace iTEC_Hackathon.Controllers
         public async Task<IActionResult> GetEndpointHistoryByHoursAsyncRepo([FromQuery] int idEndpoint, [FromQuery] int hours)
         {
             var result = await _getEndpointHistoryByHoursRepository.GetEndpointHistoryByHoursAsyncRepo(idEndpoint, hours);
+
+            if (result != null)
+                return Ok(result);
+            else
+                return BadRequest("Endpoint History failed.");
+        }
+
+        [HttpGet]
+        [Route("GetEndpointHistoryById")]
+        public async Task<IActionResult> GetHistoryByIdEndpointAsynRepo(int idEndpoint)
+        {
+            var result = await _getHistoryByIdEndpointRepository.GetHistoryByIdEndpointAsynRepo(idEndpoint);
 
             if (result != null)
                 return Ok(result);

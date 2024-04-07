@@ -47,6 +47,7 @@ namespace iTEC_Hackathon
             services.AddScoped<IAddEndpointHistoryRepository, AddEndpointHistoryRepository>();
             services.AddScoped<IGetEndpointHistoryByHoursRepository, GetEndpointHistoryByHoursRepository>();
             services.AddScoped<IGetEndpointStateByHistoryRepository, GetEndpointStateByHistoryRepository>();
+            services.AddScoped<IGetHistoryByIdEndpointRepository, GetHistoryByIdEndpointRepository>();
             //--------------------------------------------------------------------
             //REPORT
             services.AddScoped<IAddReportRepository, AddReportRepository>();
