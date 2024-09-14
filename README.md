@@ -1,4 +1,4 @@
-I developed the backend for a web application we built for the iTec Hackathon, where I participated with two classmates. Our task was to create an app that tracks other applications and their endpoints.
+I developed the backend for a web application we built for the iTEC Hackathon 2024 in Timisoara, where I participated with two classmates. Our task was to create an app that tracks other applications and their endpoints.
 
 Users can register applications and their endpoints, and also report on the status of other applications' endpoints. As a user, you can view reports for the endpoints you’ve registered.
 
